@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.green)),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+      ),
       home: HomePage(),
     );
   }
@@ -24,7 +26,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('My Card')),
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('My Card'),
+            SizedBox(width: 10),
+            Icon(Icons.badge_outlined),
+          ],
+        ),
+      ),
       body: ProfileWidget(),
     );
   }
@@ -37,17 +48,17 @@ class ProfileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(20),
+      alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Circular Avatar
           CircleAvatar(
-            radius: 200,
+            radius: 150,
             backgroundImage: AssetImage('./images/profile.jpg'),
           ),
           SvgPicture.string(svgSamiSafadi, height: 100),
-          SizedBox(height: 20),
+          SizedBox(height: 20, width: 200, child: Divider(color: Colors.grey)),
           MyBox(text: "Sami Safadi", fontFamily: "Pacifico"),
           SizedBox(height: 20),
           MyBox(text: "سامي صفدي", fontFamily: "Amiri"),

@@ -25,3 +25,11 @@ Large icon packs offering visually consistent icons for all your designs
 ### Vecteezy
 Professional quality creative resources to get your projects done faster.
 [https://www.vecteezy.com/](https://www.vecteezy.com/)
+
+### Material Palette
+Create color palette consistent with material design guidelines. 
+[https://www.materialpalette.com/](https://www.materialpalette.com/)
+
+### Google Fonts and Icons
+This includes free and open source font families, an interactive web directory for browsing the library, and APIs for using the fonts via CSS and Android.
+[https://fonts.google.com/](https://fonts.google.com/)
