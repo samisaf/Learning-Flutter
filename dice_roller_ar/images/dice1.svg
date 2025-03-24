@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+    width="800px"
+    height="800px"
+    viewBox="0 0 16 16"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    class="si-glyph si-glyph-dice-1"
+>
+  <title>Dice 1</title>
+  <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+    <!-- Shifted all x-coordinates by -1.043 from the original -->
+    <path
+      class="si-glyph-fill"
+      fill="#434343"
+      d="M13.720,0 L2.135,0 C0.955,0 0.000,0.966 0.000,2.155 L0.000,13.845 C0.000,15.034 0.955,15.999 2.135,15.999 L13.720,15.999 C14.901,15.999 15.856,15.034 15.856,13.845 L15.856,2.155 C15.856,0.966 14.901,0 13.720,0 Z M7.974,11.155 C6.277,11.155 4.904,9.749 4.904,8.015 C4.904,6.281 6.277,4.875 7.974,4.875 C9.668,4.875 11.043,6.281 11.043,8.015 C11.043,9.749 9.668,11.155 7.974,11.155 Z"
+    />
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "191802439908",
+    "project_id": "dice-roller-ar",
+    "storage_bucket": "dice-roller-ar.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191802439908:android:0859f027f8f249d37a54f1",
+        "android_client_info": {
+          "package_name": "com.ssafadi.dice_roll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-sJZZ31kaHYBiFRnhx37w3BDMFzoi12s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191802439908:android:3e4072ad1d2b71c37a54f1",
+        "android_client_info": {
+          "package_name": "com.ssafadi.dice_roller_ar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-sJZZ31kaHYBiFRnhx37w3BDMFzoi12s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
