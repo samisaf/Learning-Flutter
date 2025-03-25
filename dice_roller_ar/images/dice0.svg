@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+    width="800px"
+    height="800px"
+    viewBox="0 0 16 16"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    class="si-glyph si-glyph-dice-0"
+>
+  <title>Dice 0</title>
+  <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+    <path
+        class="si-glyph-fill"
+        fill="#434343"
+        d="M13.720,0 L2.135,0 C0.955,0 0.000,0.966 0.000,2.155 L0.000,13.845 C0.000,15.034 0.955,15.999 2.135,15.999 L13.720,15.999 C14.901,15.999 15.856,15.034 15.856,13.845 L15.856,2.155 C15.856,0.966 14.901,0 13.720,0 Z"
+    />
+  </g>
+</svg>

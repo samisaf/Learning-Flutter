@@ -9,11 +9,11 @@ import 'dice_svg.dart';
 
 import 'board_svg.dart';
 
-const title = "اِرمِ حَجَرَ النَّرْدِ";
+const title = "اِرمِ حَجَرَ النَّردِ";
 const numbersEnglish = ["Zero", "One", "Two", "Three", "Four", "Five", "Six"];
 const numbersArabic = ["صفر", "واحد", "اثنان", "ثلاثة", "أربعة", "خمسة", "ستة"];
 const introduction =
-    "هذا هو التطبيق العربي الأول الذي يسمح للمستخدمين في العالم برمي النرد إلكترونيًا بواجهة عربية فصحية";
+    "هذا هو التطبيق العربي الأول الذي يسمح للمستخدمين برمي النرد إلكترونيًا بواجهة عربية فصحية";
 
 final random = Random();
 int diceRoll() => random.nextInt(6) + 1; // Generates a number from 1 to 6
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(
           widget.title,
@@ -88,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Column(
+              spacing: 10,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -95,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
                     introduction,
-                    style: TextStyle(fontFamily: 'ReemKufi', fontSize: 20.0),
+                    style: TextStyle(fontFamily: 'ReemKufi', fontSize: 24.0),
                     textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -138,13 +139,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //   children: [
-                //     Text(numbersEnglish[_die_a], style: TextStyle(fontFamily: 'ReemKufi', fontSize: 30.0)),
-                //     Text(numbersEnglish[_die_b], style: TextStyle(fontFamily: 'ReemKufi', fontSize: 30.0)),
-                //   ],
-                // ),
               ],
             ),
           ],
