@@ -1,32 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
-
+import 'package:flutter/services.dart';
 import 'dart:math';
+import 'firebase_options.dart';
 import 'dice_svg.dart';
-
 import 'board_svg.dart';
 
-const title = "اِرمِ حَجَرَ النَّردِ";
-const numbersEnglish = ["Zero", "One", "Two", "Three", "Four", "Five", "Six"];
-const numbersArabic = ["صفر", "واحد", "اثنان", "ثلاثة", "أربعة", "خمسة", "ستة"];
-const introduction =
-    "هذا هو التطبيق العربي الأول الذي يسمح للمستخدمين برمي النرد إلكترونيًا بواجهة عربية فصحية";
+const String introduction =
+    "هذا هو التطبيق الأول الذي يسمح للمستخدمين برمي النرد إلكترونيًا بواجهة عربية فصحية";
 
+const List<String> numbersEnglish = [
+  "Zero",
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+];
+const List<String> numbersArabic = [
+  "صفر",
+  "واحد",
+  "اثنان",
+  "ثلاثة",
+  "أربعة",
+  "خمسة",
+  "ستة",
+];
+
+const String title = "اِرمِ حَجَرَ النَّردِ";
+
+const String luckyYou = "أنتَ إنسانٌ مَحظُوظٌ!";
+final String copyright = '© ${DateTime.now().year} سامي صفدي ';
+
+// Generates a number from 1 to 6
 final random = Random();
-int diceRoll() => random.nextInt(6) + 1; // Generates a number from 1 to 6
+int diceRoll() => random.nextInt(6) + 1;
 
-void main() async{
-  WidgetsFlutterBinding.ensureInitialized(); // 👈 This is the fix
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+  // Force the app to run in portrait mode only
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_) {
+    runApp(const MyApp());
+  });
+}
+
+Widget TextKufi(String text, {double fontSize = 30}) {
+  return Text(
+    text,
+    style: TextStyle(fontFamily: 'ReemKufi', fontSize: fontSize),
+    textDirection: TextDirection.rtl,
+    textAlign: TextAlign.center,
   );
-
-  // FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -47,7 +78,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -68,16 +98,20 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true,
+      appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(
-          widget.title,
-          style: TextStyle(fontFamily: 'ReemKufi', fontSize: 30.0),
-        ),
+        title: TextKufi(widget.title),
       ),
       body: Center(
         child: Stack(
           children: [
+            Positioned(
+              bottom: 20,
+              left: 0,
+              right: 0,
+              child: Center(child: TextKufi(copyright, fontSize: 18)),
+            ),
             Positioned.fill(
               child: Opacity(
                 opacity: 0.1,
@@ -88,19 +122,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Column(
-              spacing: 10,
+              spacing: 20,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    introduction,
-                    style: TextStyle(fontFamily: 'ReemKufi', fontSize: 24.0),
-                    textDirection: TextDirection.rtl,
-                  ),
+                  child: TextKufi(introduction, fontSize: 24),
                 ),
-                SizedBox(height: 20),
+                // SizedBox(width: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -129,16 +159,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text(
-                      numbersArabic[_firstDie],
-                      style: TextStyle(fontFamily: 'ReemKufi', fontSize: 30.0),
-                    ),
-                    Text(
-                      numbersArabic[_secondDie],
-                      style: TextStyle(fontFamily: 'ReemKufi', fontSize: 30.0),
-                    ),
+                    TextKufi(numbersArabic[_firstDie]),
+                    TextKufi(numbersArabic[_secondDie]),
                   ],
                 ),
+                TextKufi(_firstDie == _secondDie ? luckyYou : ""),
               ],
             ),
           ],
@@ -148,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _rollDice,
         tooltip: 'Roll',
         child: const Icon(Icons.play_arrow),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
